@@ -1,0 +1,640 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fauna Tent | Carpas de Techo Chile</title>
+    <meta name="description" content="Venta de carpas de techo premium para 4x4. Modelos A, B y C. Apertura automática, tela resistente. Pago transferencia, tarjeta débito/crédito. Envíos StarKen a todo Chile. WhatsApp: +56 9 8200 2509">
+    <meta name="keywords" content="roof tent Chile, carpa de techo, camping, 4x4, overlanding, carpas Chile, envío starken">
+    <meta name="author" content="FaunaTent">
+    
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Fauna Tent | Carpas de Techo Chile">
+    <meta property="og:description" content="Carpas de techo apertura automática de alta calidad. Pago flexible. Envíos a todo Chile.">
+    <meta property="og:url" content="https://faunatent.vercel.app">
+    
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-N9Y0GGR8JT"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-N9Y0GGR8JT');
+    </script>
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --dark-green: #102820;
+            --forest-green: #4C6444;
+            --khaki: #CABA9C;
+            --amber: #8A6240;
+            --chocolate: #4D2D1C;
+            --white: #FFFFFF;
+            --light-bg: #F5F1ED;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            line-height: 1.6;
+            color: var(--chocolate);
+            background: linear-gradient(135deg, var(--light-bg) 0%, var(--khaki) 100%);
+        }
+
+        header {
+            background: linear-gradient(135deg, var(--dark-green) 0%, rgba(16, 40, 32, 0.95) 100%);
+            color: var(--white);
+            padding: 1.5rem 2rem;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 4px 20px rgba(16, 40, 32, 0.3);
+        }
+
+        nav {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+            flex-wrap: wrap;
+        }
+
+        .nav-links a {
+            color: var(--white);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+            font-size: 0.9rem;
+        }
+
+        .nav-links a:hover {
+            color: var(--khaki);
+        }
+
+        .hero {
+            max-width: 1200px;
+            margin: 4rem auto 2rem;
+            padding: 0 2rem;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            color: var(--dark-green);
+            margin: 1rem 0;
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            color: var(--amber);
+            margin: 1rem 0;
+        }
+
+        .section {
+            max-width: 1200px;
+            margin: 4rem auto;
+            padding: 0 2rem;
+        }
+
+        .modelos {
+            max-width: 1200px;
+            margin: 4rem auto;
+            padding: 0 2rem;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            color: var(--dark-green);
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .modelos-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .modelo-card {
+            background: var(--white);
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 8px 30px rgba(16, 40, 32, 0.15);
+            transition: transform 0.3s;
+        }
+
+        .modelo-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 40px rgba(16, 40, 32, 0.25);
+        }
+
+        .gallery-container {
+            position: relative;
+            width: 100%;
+            height: 300px;
+            background: var(--light-bg);
+            overflow: hidden;
+        }
+
+        .gallery {
+            display: flex;
+            height: 100%;
+            scroll-behavior: smooth;
+            overflow-x: auto;
+        }
+
+        .gallery img {
+            min-width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .gallery-nav {
+            position: absolute;
+            bottom: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 6px;
+            z-index: 20;
+        }
+
+        .gallery-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.6);
+            cursor: pointer;
+            transition: all 0.3s;
+            border: 2px solid rgba(255,255,255,0.8);
+        }
+
+        .gallery-dot.active {
+            background: var(--khaki);
+            transform: scale(1.3);
+        }
+
+        .nav-buttons {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            padding: 0 10px;
+            z-index: 10;
+        }
+
+        .nav-btn {
+            background: rgba(0,0,0,0.5);
+            color: white;
+            border: none;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 1.2rem;
+            transition: background 0.3s;
+        }
+
+        .nav-btn:hover {
+            background: rgba(0,0,0,0.8);
+        }
+
+        .modelo-info {
+            padding: 2rem;
+        }
+
+        .modelo-title {
+            font-size: 1.8rem;
+            color: var(--dark-green);
+            margin-bottom: 0.5rem;
+        }
+
+        .modelo-price {
+            font-size: 1.5rem;
+            color: var(--amber);
+            font-weight: 700;
+            margin: 1.5rem 0;
+        }
+
+        .caracteristicas {
+            list-style: none;
+            margin-bottom: 1.5rem;
+            font-size: 0.9rem;
+        }
+
+        .caracteristicas li {
+            padding: 0.5rem 0 0.5rem 1.5rem;
+            position: relative;
+        }
+
+        .caracteristicas li:before {
+            content: "◆";
+            position: absolute;
+            left: 0;
+            color: var(--forest-green);
+        }
+
+        .cta-button {
+            width: 100%;
+            padding: 1rem;
+            background: linear-gradient(135deg, var(--forest-green), var(--dark-green));
+            color: var(--white);
+            border: none;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-transform: uppercase;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-2px);
+            background: linear-gradient(135deg, var(--dark-green), var(--chocolate));
+        }
+
+        .info-box {
+            background: var(--white);
+            border-left: 4px solid var(--forest-green);
+            padding: 2rem;
+            border-radius: 8px;
+            margin-bottom: 2rem;
+            box-shadow: 0 4px 15px rgba(16, 40, 32, 0.1);
+        }
+
+        .info-box h3 {
+            color: var(--dark-green);
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 1.3rem;
+        }
+
+        .info-box ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .info-box li {
+            padding: 0.7rem 0 0.7rem 2rem;
+            position: relative;
+        }
+
+        .info-box li:before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: var(--forest-green);
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+
+        .whatsapp-banner {
+            background: linear-gradient(135deg, #25D366 0%, #128C7E 100%);
+            color: white;
+            padding: 2.5rem;
+            border-radius: 8px;
+            text-align: center;
+            margin: 3rem 0;
+            box-shadow: 0 8px 30px rgba(37, 211, 102, 0.3);
+        }
+
+        .whatsapp-banner h3 {
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+        }
+
+        .whatsapp-banner p {
+            font-size: 1.1rem;
+            margin-bottom: 1.5rem;
+            line-height: 1.8;
+        }
+
+        .whatsapp-btn {
+            display: inline-block;
+            padding: 1rem 2.5rem;
+            background: var(--white);
+            color: #25D366;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: 700;
+            transition: transform 0.3s;
+            cursor: pointer;
+            border: none;
+            font-size: 1.1rem;
+        }
+
+        .whatsapp-btn:hover {
+            transform: scale(1.05);
+        }
+
+        footer {
+            background: var(--dark-green);
+            color: var(--white);
+            padding: 2rem;
+            text-align: center;
+            margin-top: 4rem;
+        }
+
+        .footer-contact a {
+            color: var(--khaki);
+            text-decoration: none;
+            margin: 0 1rem;
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+            .section-title {
+                font-size: 1.8rem;
+            }
+            .modelos-grid {
+                grid-template-columns: 1fr;
+            }
+            .nav-links {
+                gap: 1rem;
+            }
+            .logo {
+                font-size: 1.2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">⛺ Fauna Tent</div>
+            <ul class="nav-links">
+                <li><a href="#inicio">Inicio</a></li>
+                <li><a href="#modelos">Modelos</a></li>
+                <li><a href="#pago-envio">Pago y Envío</a></li>
+                <li><a href="#contacto">Contacto</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="hero" id="inicio">
+        <p style="color: var(--forest-green); text-transform: uppercase; letter-spacing: 2px;">🏕️ Fauna Tent </p>
+        <h1>Duerme donde quieras</h1>
+        <p>Carpas de techo con diseño, calidad y confort superior</p>
+    </section>
+
+    <section class="modelos" id="modelos">
+        <h2 class="section-title">Nuestros Modelos</h2>
+        <div class="modelos-grid">
+            <!-- MODELO A -->
+            <div class="modelo-card">
+                <div class="gallery-container">
+                    <div class="gallery" id="gallery-a"></div>
+                    <div class="nav-buttons">
+                        <button class="nav-btn" onclick="scrollGallery('gallery-a', -1)">❮</button>
+                        <button class="nav-btn" onclick="scrollGallery('gallery-a', 1)">❯</button>
+                    </div>
+                    <div class="gallery-nav" id="nav-a"></div>
+                </div>
+                <div class="modelo-info">
+                    <h3 class="modelo-title">Modelo A</h3>
+                    <p style="color: var(--amber); margin-bottom: 1rem;">2-3 Personas • Sin Toldo</p>
+                    <ul class="caracteristicas">
+                        <li>Capacidad: 2-3 personas</li>
+                        <li>Área descanso: 200 × 125 cm</li>
+                        <li>Apertura automática V</li>
+                        <li>Tela 280G Poliéster-Algodón</li>
+                        <li>Impermeabilidad: >3.000 mm</li>
+                        <li>Peso: 54 kg (escalera incluida)</li>
+                    </ul>
+                    <div class="modelo-price">$1.230.000 CLP</div>
+                    <button class="cta-button" onclick="whatsapp('Modelo A', '2-3 personas')">💬 Consultar</button>
+                </div>
+            </div>
+
+            <!-- MODELO B -->
+            <div class="modelo-card">
+                <div class="gallery-container">
+                    <div class="gallery" id="gallery-b"></div>
+                    <div class="nav-buttons">
+                        <button class="nav-btn" onclick="scrollGallery('gallery-b', -1)">❮</button>
+                        <button class="nav-btn" onclick="scrollGallery('gallery-b', 1)">❯</button>
+                    </div>
+                    <div class="gallery-nav" id="nav-b"></div>
+                </div>
+                <div class="modelo-info">
+                    <h3 class="modelo-title">Modelo B</h3>
+                    <p style="color: var(--amber); margin-bottom: 1rem;">2-3 Personas • Toldo 180°</p>
+                    <ul class="caracteristicas">
+                        <li>Capacidad: 2-3 personas</li>
+                        <li>Área descanso: 200 × 125 cm</li>
+                        <li>Toldo extensible 180°</li>
+                        <li>Apertura automática V</li>
+                        <li>Tela 280G Poliéster-Algodón</li>
+                        <li>Peso: 54 kg</li>
+                    </ul>
+                    <div class="modelo-price">$1.350.000 CLP</div>
+                    <button class="cta-button" onclick="whatsapp('Modelo B', '2-3 personas')">💬 Consultar</button>
+                </div>
+            </div>
+
+            <!-- MODELO C -->
+            <div class="modelo-card">
+                <div class="gallery-container">
+                    <div class="gallery" id="gallery-c"></div>
+                    <div class="nav-buttons">
+                        <button class="nav-btn" onclick="scrollGallery('gallery-c', -1)">❮</button>
+                        <button class="nav-btn" onclick="scrollGallery('gallery-c', 1)">❯</button>
+                    </div>
+                    <div class="gallery-nav" id="nav-c"></div>
+                </div>
+                <div class="modelo-info">
+                    <h3 class="modelo-title">Modelo C</h3>
+                    <p style="color: var(--amber); margin-bottom: 1rem;">4 Personas • Toldo 180°</p>
+                    <ul class="caracteristicas">
+                        <li>Capacidad: 4 personas</li>
+                        <li>Área descanso: 230 × 130 cm</li>
+                        <li>Toldo 180° tipo libro</li>
+                        <li>Ventanas 4 direcciones</li>
+                        <li>Apertura automática rápida</li>
+                        <li>Peso: 62 kg</li>
+                    </ul>
+                    <div class="modelo-price">$1.450.000 CLP</div>
+                    <button class="cta-button" onclick="whatsapp('Modelo C', '4 personas')">💬 Consultar</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECCIÓN PAGO Y ENVÍO -->
+    <section class="section" id="pago-envio">
+        <h2 class="section-title">Opciones de Pago y Envío</h2>
+        
+        <div class="info-box">
+            <h3>💳 Opciones de Pago</h3>
+            <ul>
+                <li><strong>Transferencia Bancaria:</strong> Disponible a cualquier banco de Chile</li>
+                <li><strong>Tarjeta de Crédito:</strong> Visa, Mastercard, American Express</li>
+                <li><strong>Tarjeta de Débito:</strong> Débito directo en cuenta</li>
+            </ul>
+        </div>
+
+        <div class="info-box">
+            <h3>🚚 Envíos a Todo Chile</h3>
+            <ul>
+                <li><strong>Cobertura Nacional:</strong> Llegamos a todas las regiones de Chile</li>
+                <li><strong>Empresa de Envío:</strong> StarKen - Segura y confiable</li>
+                <li><strong>Costo:</strong> El cliente paga el envío según destino</li>
+                <li><strong>Tiempo de entrega:</strong> 3-5 días hábiles según región</li>
+            </ul>
+        </div>
+
+        <div class="info-box">
+            <h3>📦 Incluye en tu Compra</h3>
+            <ul>
+                <li>Escalera telescópica de aluminio 2,3 m</li>
+                <li>Luz interior con distintos modos</li>
+                <li>Colchón de 5 cm de espesor</li>
+                <li>Bolsas de almacenamiento</li>
+                <li>Kit de anclaje a rack/barras de vehículo</li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- BANNER WHATSAPP -->
+    <div class="section" id="contacto">
+        <div class="whatsapp-banner">
+            <h3>¿Tienes dudas o preguntas?</h3>
+            <p>¡Contáctanos por WhatsApp! Nuestro equipo está disponible para ayudarte con cualquier consulta sobre nuestras carpas de techo premium.</p>
+            <button class="whatsapp-btn" onclick="whatsapp('General', 'Consulta general')">
+                💬 Escríbenos por WhatsApp
+            </button>
+        </div>
+    </div>
+
+    <footer>
+        <h3>🏕️ Fauna Tent</h3>
+        <p style="color: var(--khaki); font-style: italic; margin: 1rem 0;">Duerme donde quieras</p>
+        <div class="footer-contact">
+            <a href="https://wa.me/56982002509?text=Hola%20Fauna%20Tent%20me%20interesa%20conocer%20sus%20carpas" target="_blank">
+                📱 WhatsApp: +56 9 8200 2509
+            </a>
+        </div>
+        <p style="margin-top: 1rem; font-size: 0.85rem;">© 2026 Fauna Tent. Todos los derechos reservados.</p>
+    </footer>
+
+    <script>
+        const fotosData = {
+            A: [
+                'fotos_dachcamper/MODELO A/IMG_20260429_004606.jpg',
+                'fotos_dachcamper/MODELO A/IMG_20260429_004635.jpg',
+                'fotos_dachcamper/MODELO A/IMG_20260429_004701.jpg',
+                'fotos_dachcamper/MODELO A/IMG_20260429_004728.jpg',
+                'fotos_dachcamper/MODELO A/IMG_20260429_004802.jpg',
+                'fotos_dachcamper/MODELO A/IMG_20260429_004815.jpg',
+                'fotos_dachcamper/MODELO A/IMG_20260429_004829.jpg',
+                'fotos_dachcamper/MODELO A/IMG_20260429_004846.jpg',
+                'fotos_dachcamper/MODELO A/IMG_20260429_004900.jpg',
+                'fotos_dachcamper/MODELO A/IMG_20260429_004917.jpg'
+            ],
+            B: [
+                'fotos_dachcamper/MODELO B/IMG_20260429_011137.jpg',
+                'fotos_dachcamper/MODELO B/IMG_20260429_011154.jpg',
+                'fotos_dachcamper/MODELO B/IMG_20260429_011213.jpg',
+                'fotos_dachcamper/MODELO B/IMG_20260429_011232.jpg',
+                'fotos_dachcamper/MODELO B/IMG_20260429_011322.jpg',
+                'fotos_dachcamper/MODELO B/IMG_20260429_011349.jpg',
+                'fotos_dachcamper/MODELO B/IMG_20260429_011406.jpg',
+                'fotos_dachcamper/MODELO B/IMG_20260429_011423.jpg',
+                'fotos_dachcamper/MODELO B/IMG_20260429_011440.jpg',
+                'fotos_dachcamper/MODELO B/IMG_20260429_011455.jpg'
+            ],
+            C: [
+                'fotos_dachcamper/MODELO C/IMG_20260429_000708.jpg',
+                'fotos_dachcamper/MODELO C/IMG_20260429_000726.jpg',
+                'fotos_dachcamper/MODELO C/IMG_20260429_000742.jpg',
+                'fotos_dachcamper/MODELO C/IMG_20260429_000756.jpg',
+                'fotos_dachcamper/MODELO C/IMG_20260429_000941.jpg',
+                'fotos_dachcamper/MODELO C/IMG_20260429_001040.jpg',
+                'fotos_dachcamper/MODELO C/IMG_20260429_001053.jpg',
+                'fotos_dachcamper/MODELO C/IMG_20260429_001106.jpg',
+                'fotos_dachcamper/MODELO C/IMG_20260429_001124.jpg',
+                'fotos_dachcamper/MODELO C/IMG_20260429_001137.jpg'
+            ]
+        };
+
+        function initGallery(modelKey, galleryId, navId) {
+            const gallery = document.getElementById(galleryId);
+            const nav = document.getElementById(navId);
+            const fotos = fotosData[modelKey];
+
+            fotos.forEach((foto, idx) => {
+                const img = document.createElement('img');
+                img.src = foto;
+                img.alt = `Fauna Tent Carpa Modelo ${modelKey} - Foto ${idx + 1}`;
+                img.loading = 'lazy';
+                gallery.appendChild(img);
+
+                const dot = document.createElement('div');
+                dot.className = 'gallery-dot' + (idx === 0 ? ' active' : '');
+                dot.onclick = () => scrollToPhoto(galleryId, idx);
+                nav.appendChild(dot);
+            });
+        }
+
+        function scrollGallery(galleryId, direction) {
+            const gallery = document.getElementById(galleryId);
+            const itemWidth = gallery.querySelector('img')?.offsetWidth || 300;
+            gallery.scrollLeft += itemWidth * direction;
+        }
+
+        function scrollToPhoto(galleryId, index) {
+            const gallery = document.getElementById(galleryId);
+            const itemWidth = gallery.querySelector('img')?.offsetWidth || 300;
+            gallery.scrollLeft = itemWidth * index;
+        }
+
+        function whatsapp(modelo, descripcion) {
+            const numero = '56982002509';
+            const mensaje = encodeURIComponent(`Hola Fauna Tent! Me interesa el ${modelo} (${descripcion}). ¿Cuál es el precio actual y disponibilidad?`);
+            
+            // Analytics event
+            if (typeof gtag !== 'undefined') {
+                gtag('event', 'whatsapp_consulta', {
+                    'modelo': modelo,
+                    'descripcion': descripcion
+                });
+            }
+            
+            window.open(`https://wa.me/${numero}?text=${mensaje}`, '_blank');
+        }
+
+        window.addEventListener('load', () => {
+            initGallery('A', 'gallery-a', 'nav-a');
+            initGallery('B', 'gallery-b', 'nav-b');
+            initGallery('C', 'gallery-c', 'nav-c');
+        });
+    </script>
+</body>
+</html>
