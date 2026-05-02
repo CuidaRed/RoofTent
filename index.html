@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Fauna Tent | Carpas de Techo Chile</title>
-    <meta name="description" content="Venta de carpas de techo premium para 4x4. Modelos A, B y C. Apertura automática, tela resistente. Pago transferencia, tarjeta débito/crédito. Envíos StarKen a todo Chile. WhatsApp: +56 9 8200 2509">
+    <meta name="description" content="Venta de carpas de techo premium para 4x4. Modelos Pudú, Huemul y Cóndor. Apertura automática, tela resistente. Pago transferencia, tarjeta débito/crédito. Envíos StarKen a todo Chile. WhatsApp: +56 9 8200 2509">
     <meta name="keywords" content="roof tent Chile, carpa de techo, camping, 4x4, overlanding, carpas Chile, envío starken">
     <meta name="author" content="FaunaTent">
     
@@ -79,6 +79,24 @@
             align-items: center;
             gap: 0.8rem;
             color: var(--accent-gold);
+        }
+
+        .logo-img {
+            width: 40px;
+            height: 40px;
+            background: rgba(255,255,255,0.2);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+        }
+
+        .logo-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            padding: 4px;
         }
 
         .nav-links {
@@ -166,15 +184,16 @@
         }
 
         .gallery-container {
-    position: relative;
-    width: 100%;
-    max-width: 100%;
-    height: 500px;     
-    aspect-ratio: 4 / 3; 
-    background: var(--off-white);
-    overflow: hidden;
-    border-radius: 16px;
-    box-shadow: 0 20px 60px rgba(0,0,0,0.15);
+            position: relative;
+            width: 100%;
+            max-width: 100%;
+            height: 500px;     
+            aspect-ratio: 4 / 3; 
+            background: var(--off-white);
+            overflow: hidden;
+            border-radius: 16px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.15);
+            cursor: pointer;
         }
 
         .gallery {
@@ -191,6 +210,12 @@
             object-fit: cover;
             object-position: center;
             scroll-snap-align: start;
+            cursor: pointer;
+            transition: opacity 0.3s;
+        }
+
+        .gallery img:hover {
+            opacity: 0.95;
         }
 
         .gallery-nav {
@@ -253,7 +278,33 @@
         .modelo-info {
             display: flex;
             flex-direction: column;
+            justify-content: flex-start;
+        }
+
+        .modelo-header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .modelo-img {
+            width: 60px;
+            height: 60px;
+            background: rgba(126, 140, 84, 0.1);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
             justify-content: center;
+            flex-shrink: 0;
+            font-size: 2rem;
+        }
+
+        .modelo-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            padding: 8px;
         }
 
         .modelo-badge {
@@ -264,7 +315,6 @@
             border-radius: 25px;
             font-size: 0.85rem;
             font-weight: 600;
-            margin-bottom: 1.5rem;
             text-transform: uppercase;
             letter-spacing: 1px;
             width: fit-content;
@@ -339,6 +389,185 @@
             background: linear-gradient(135deg, var(--olive-dark), #3F4428);
         }
 
+        /* MODAL LIGHTBOX */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.95);
+            overflow: hidden;
+        }
+
+        .modal.active {
+            display: flex;
+        }
+
+        .modal-content {
+            display: flex;
+            width: 100%;
+            height: 100%;
+            align-items: center;
+            justify-content: space-between;
+            position: relative;
+        }
+
+        .modal-image-container {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem;
+        }
+
+        .modal-image {
+            max-width: 90%;
+            max-height: 90vh;
+            object-fit: contain;
+        }
+
+        .modal-info-container {
+            width: 350px;
+            background: var(--off-white);
+            padding: 2rem;
+            overflow-y: auto;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .modal-close {
+            position: absolute;
+            top: 20px;
+            right: 30px;
+            color: white;
+            font-size: 2rem;
+            font-weight: bold;
+            cursor: pointer;
+            z-index: 10;
+            transition: color 0.3s;
+        }
+
+        .modal-close:hover {
+            color: var(--accent-gold);
+        }
+
+        .modal-titulo {
+            font-size: 2rem;
+            color: var(--olive-dark);
+            margin-bottom: 1rem;
+            font-weight: 800;
+        }
+
+        .modal-subtitulo {
+            font-size: 1.1rem;
+            color: var(--earth-brown);
+            margin-bottom: 1.5rem;
+            font-weight: 500;
+        }
+
+        .modal-badge {
+            display: inline-block;
+            background: linear-gradient(135deg, var(--sage-green), var(--olive-dark));
+            color: var(--off-white);
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .modal-price {
+            font-size: 1.8rem;
+            color: var(--accent-gold);
+            font-weight: 700;
+            margin: 1.5rem 0;
+            padding: 1rem 0;
+            border-top: 2px solid var(--sage-green);
+            border-bottom: 2px solid var(--sage-green);
+        }
+
+        .modal-caracteristicas {
+            list-style: none;
+            margin: 1.5rem 0;
+            font-size: 0.85rem;
+            flex-grow: 1;
+        }
+
+        .modal-caracteristicas li {
+            padding: 0.5rem 0 0.5rem 1.5rem;
+            position: relative;
+            color: var(--text-dark);
+            line-height: 1.5;
+        }
+
+        .modal-caracteristicas li:before {
+            content: "◆";
+            position: absolute;
+            left: 0;
+            color: var(--sage-green);
+            font-size: 0.7rem;
+            font-weight: bold;
+        }
+
+        .modal-button {
+            width: 100%;
+            padding: 0.9rem;
+            background: linear-gradient(135deg, var(--sage-green), var(--olive-dark));
+            color: var(--off-white);
+            border: none;
+            border-radius: 10px;
+            font-size: 0.9rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-top: auto;
+            box-shadow: 0 8px 20px rgba(126, 140, 84, 0.3);
+        }
+
+        .modal-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 30px rgba(126, 140, 84, 0.4);
+        }
+
+        .modal-nav {
+            position: absolute;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 20px;
+            z-index: 20;
+        }
+
+        .modal-nav-btn {
+            background: rgba(255,255,255,0.2);
+            color: white;
+            border: 2px solid white;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 1.5rem;
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .modal-nav-btn:hover {
+            background: var(--accent-gold);
+            color: var(--olive-dark);
+            border-color: var(--accent-gold);
+        }
+
         /* SECCIÓN PAGO Y ENVÍO */
         .section-pago {
             background: linear-gradient(135deg, var(--cream) 0%, #F0EBE0 100%);
@@ -407,7 +636,7 @@
 
         /* BANNER WHATSAPP */
         .whatsapp-banner {
-            background: linear-gradient(135deg, #25D366 0%, #1DA851 100%);
+            background: linear-gradient(135deg, #ad7556 0%, #53443d 100%);
             color: white;
             padding: 2.5rem;
             border-radius: 12px;
@@ -509,6 +738,15 @@
             .hero h1 {
                 font-size: 2.8rem;
             }
+
+            .modal-info-container {
+                width: 100%;
+                max-height: 50%;
+            }
+
+            .modal-image-container {
+                height: 50%;
+            }
         }
 
         @media (max-width: 768px) {
@@ -546,13 +784,48 @@
                 grid-template-columns: 1fr;
                 gap: 2rem;
             }
+
+            .modal-content {
+                flex-direction: column;
+                overflow-y: auto;
+            }
+
+            .modal-image-container {
+                width: 100%;
+                padding: 1rem;
+                height: auto;
+            }
+
+            .modal-info-container {
+                width: 100%;
+                height: auto;
+                max-height: none;
+            }
+
+            .modal-nav {
+                bottom: 10px;
+                gap: 10px;
+            }
+
+            .modal-nav-btn {
+                width: 40px;
+                height: 40px;
+                font-size: 1.2rem;
+            }
         }
     </style>
 </head>
 <body>
     <header>
         <nav>
-            <div class="logo">⛺ Fauna Tent</div>
+            <div class="logo">
+                <div class="logo-img">
+                    <!-- Aquí va la imagen del logo. Descomentar cuando tengas la foto -->
+                    <!-- <img src="tu_logo.png" alt="Fauna Tent Logo"> -->
+                    ⛺
+                </div>
+                Fauna Tent
+            </div>
             <ul class="nav-links">
                 <li><a href="#inicio">Inicio</a></li>
                 <li><a href="#modelos">Modelos</a></li>
@@ -572,18 +845,27 @@
     <section class="modelo-section" id="modelos">
         <div class="modelo-container">
             <div class="gallery-wrapper">
-                <div class="gallery-container">
+                <div class="gallery-container" onclick="openModal('gallery-a', 'Pudú')">
                     <div class="gallery" id="gallery-a"></div>
                     <div class="nav-buttons">
-                        <button class="nav-btn" onclick="scrollGallery('gallery-a', -1)">❮</button>
-                        <button class="nav-btn" onclick="scrollGallery('gallery-a', 1)">❯</button>
+                        <button class="nav-btn" onclick="scrollGallery(event, 'gallery-a', -1)">❮</button>
+                        <button class="nav-btn" onclick="scrollGallery(event, 'gallery-a', 1)">❯</button>
                     </div>
                     <div class="gallery-nav" id="nav-a"></div>
                 </div>
             </div>
             <div class="modelo-info">
-                <div class="modelo-badge">Compacta</div>
-                <h2 class="modelo-title">Modelo Pudú</h2>
+                <div class="modelo-header">
+                    <div class="modelo-img">
+                        <!-- Aquí va la imagen del modelo. Descomentar cuando tengas la foto -->
+                        <!-- <img src="tu_imagen_pudo.png" alt="Modelo Pudú"> -->
+                        🦌
+                    </div>
+                    <div>
+                        <div class="modelo-badge">Compacta</div>
+                        <h2 class="modelo-title">Modelo Pudú</h2>
+                    </div>
+                </div>
                 <p class="modelo-subtitle">2-3 Personas • Sin Toldo</p>
                 <ul class="caracteristicas">
                     <li>Capacidad: 2-3 personas cómodas</li>
@@ -604,18 +886,26 @@
     <section class="modelo-section">
         <div class="modelo-container">
             <div class="gallery-wrapper">
-                <div class="gallery-container">
+                <div class="gallery-container" onclick="openModal('gallery-b', 'Huemul')">
                     <div class="gallery" id="gallery-b"></div>
                     <div class="nav-buttons">
-                        <button class="nav-btn" onclick="scrollGallery('gallery-b', -1)">❮</button>
-                        <button class="nav-btn" onclick="scrollGallery('gallery-b', 1)">❯</button>
+                        <button class="nav-btn" onclick="scrollGallery(event, 'gallery-b', -1)">❮</button>
+                        <button class="nav-btn" onclick="scrollGallery(event, 'gallery-b', 1)">❯</button>
                     </div>
                     <div class="gallery-nav" id="nav-b"></div>
                 </div>
             </div>
             <div class="modelo-info">
-                <div class="modelo-badge">Versátil</div>
-                <h2 class="modelo-title">Modelo Huemul</h2>
+                <div class="modelo-header">
+                    <div class="modelo-img">
+                        <!-- <img src="tu_imagen_huemul.png" alt="Modelo Huemul"> -->
+                        🦌
+                    </div>
+                    <div>
+                        <div class="modelo-badge">Versátil</div>
+                        <h2 class="modelo-title">Modelo Huemul</h2>
+                    </div>
+                </div>
                 <p class="modelo-subtitle">2-3 Personas • Toldo 180°</p>
                 <ul class="caracteristicas">
                     <li>Capacidad: 2-3 personas</li>
@@ -637,18 +927,26 @@
     <section class="modelo-section">
         <div class="modelo-container">
             <div class="gallery-wrapper">
-                <div class="gallery-container">
+                <div class="gallery-container" onclick="openModal('gallery-c', 'Cóndor')">
                     <div class="gallery" id="gallery-c"></div>
                     <div class="nav-buttons">
-                        <button class="nav-btn" onclick="scrollGallery('gallery-c', -1)">❮</button>
-                        <button class="nav-btn" onclick="scrollGallery('gallery-c', 1)">❯</button>
+                        <button class="nav-btn" onclick="scrollGallery(event, 'gallery-c', -1)">❮</button>
+                        <button class="nav-btn" onclick="scrollGallery(event, 'gallery-c', 1)">❯</button>
                     </div>
                     <div class="gallery-nav" id="nav-c"></div>
                 </div>
             </div>
             <div class="modelo-info">
-                <div class="modelo-badge">Premium</div>
-                <h2 class="modelo-title">Modelo Cóndor</h2>
+                <div class="modelo-header">
+                    <div class="modelo-img">
+                        <!-- <img src="tu_imagen_condor.png" alt="Modelo Cóndor"> -->
+                        🦅
+                    </div>
+                    <div>
+                        <div class="modelo-badge">Premium</div>
+                        <h2 class="modelo-title">Modelo Cóndor</h2>
+                    </div>
+                </div>
                 <p class="modelo-subtitle">4 Personas • Toldo 180°</p>
                 <ul class="caracteristicas">
                     <li>Capacidad: 4 personas cómodas</li>
@@ -665,6 +963,28 @@
             </div>
         </div>
     </section>
+
+    <!-- MODAL LIGHTBOX -->
+    <div class="modal" id="imageModal">
+        <span class="modal-close" onclick="closeModal()">&times;</span>
+        <div class="modal-content">
+            <div class="modal-image-container">
+                <img class="modal-image" id="modalImage" src="" alt="">
+                <div class="modal-nav">
+                    <button class="modal-nav-btn" onclick="changeModalImage(-1)">❮</button>
+                    <button class="modal-nav-btn" onclick="changeModalImage(1)">❯</button>
+                </div>
+            </div>
+            <div class="modal-info-container">
+                <div class="modal-badge" id="modalBadge"></div>
+                <h2 class="modal-titulo" id="modalTitulo"></h2>
+                <p class="modal-subtitulo" id="modalSubtitulo"></p>
+                <ul class="modal-caracteristicas" id="modalCaracteristicas"></ul>
+                <div class="modal-price" id="modalPrice"></div>
+                <button class="modal-button" id="modalWhatsappBtn">💬 Consultar Disponibilidad</button>
+            </div>
+        </div>
+    </div>
 
     <!-- SECCIÓN PAGO Y ENVÍO -->
     <section class="section-pago" id="pago-envio">
@@ -727,6 +1047,57 @@
     </footer>
 
     <script>
+        // Datos de modelos con información completa
+        const modelosData = {
+            'Pudú': {
+                titulo: 'Modelo Pudú',
+                subtitulo: '2-3 Personas • Sin Toldo',
+                badge: 'Compacta',
+                precio: '$1.230.000 CLP',
+                caracteristicas: [
+                    'Capacidad: 2-3 personas cómodas',
+                    'Área de descanso: 200 × 125 cm',
+                    'Apertura automática vertical',
+                    'Tela 280G Poliéster-Algodón de primera calidad',
+                    'Impermeabilidad garantizada: >3.000 mm',
+                    'Peso total: 54 kg (escalera incluida)',
+                    'Perfecta para aventuras ligeras'
+                ]
+            },
+            'Huemul': {
+                titulo: 'Modelo Huemul',
+                subtitulo: '2-3 Personas • Toldo 180°',
+                badge: 'Versátil',
+                precio: '$1.350.000 CLP',
+                caracteristicas: [
+                    'Capacidad: 2-3 personas',
+                    'Área de descanso: 200 × 125 cm',
+                    'Toldo extensible 180° - Protección total',
+                    'Apertura automática vertical',
+                    'Tela 280G Poliéster-Algodón resistente',
+                    'Impermeabilidad: >3.000 mm',
+                    'Peso: 54 kg (escalera y toldo incluidos)',
+                    'Ideal para viajes frecuentes'
+                ]
+            },
+            'Cóndor': {
+                titulo: 'Modelo Cóndor',
+                subtitulo: '4 Personas • Toldo 180°',
+                badge: 'Premium',
+                precio: '$1.450.000 CLP',
+                caracteristicas: [
+                    'Capacidad: 4 personas cómodas',
+                    'Área de descanso: 230 × 130 cm - Extra espaciosa',
+                    'Toldo 180° tipo libro - Cobertura superior',
+                    'Ventanas 4 direcciones - Máxima ventilación',
+                    'Apertura automática rápida',
+                    'Tela premium 280G Poliéster-Algodón',
+                    'Peso: 62 kg (todo incluido)',
+                    'La mejor opción para familias y expediciones largas'
+                ]
+            }
+        };
+
         const fotosData = {
             A: [
                 'fotos_faunatent/MODELO A/IMG_20260429_004606.jpg',
@@ -766,6 +1137,9 @@
             ]
         };
 
+        let currentModalModel = null;
+        let currentModalIndex = 0;
+
         function initGallery(modelKey, galleryId, navId) {
             const gallery = document.getElementById(galleryId);
             const nav = document.getElementById(navId);
@@ -785,7 +1159,8 @@
             });
         }
 
-        function scrollGallery(galleryId, direction) {
+        function scrollGallery(event, galleryId, direction) {
+            event.stopPropagation();
             const gallery = document.getElementById(galleryId);
             const itemWidth = gallery.querySelector('img')?.offsetWidth || 400;
             gallery.scrollLeft += itemWidth * direction;
@@ -795,6 +1170,61 @@
             const gallery = document.getElementById(galleryId);
             const itemWidth = gallery.querySelector('img')?.offsetWidth || 400;
             gallery.scrollLeft = itemWidth * index;
+        }
+
+        function openModal(galleryId, modelName) {
+            const modal = document.getElementById('imageModal');
+            const gallery = document.getElementById(galleryId);
+            const currentImage = gallery.querySelector('img');
+            const modelKey = galleryId.charAt(galleryId.length - 1).toUpperCase();
+            const fotos = fotosData[modelKey];
+            
+            currentModalIndex = Array.from(gallery.querySelectorAll('img')).indexOf(currentImage);
+            currentModalModel = modelName;
+
+            displayModalImage(fotos[currentModalIndex], modelName);
+            modal.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeModal() {
+            const modal = document.getElementById('imageModal');
+            modal.classList.remove('active');
+            document.body.style.overflow = 'auto';
+        }
+
+        function displayModalImage(imageSrc, modelName) {
+            const modal = document.getElementById('imageModal');
+            const modalImage = document.getElementById('modalImage');
+            const modelInfo = modelosData[modelName];
+
+            modalImage.src = imageSrc;
+
+            document.getElementById('modalBadge').textContent = modelInfo.badge;
+            document.getElementById('modalTitulo').textContent = modelInfo.titulo;
+            document.getElementById('modalSubtitulo').textContent = modelInfo.subtitulo;
+            document.getElementById('modalPrice').textContent = modelInfo.precio;
+
+            const caracteristicasHTML = modelInfo.caracteristicas
+                .map(c => `<li>${c}</li>`)
+                .join('');
+            document.getElementById('modalCaracteristicas').innerHTML = caracteristicasHTML;
+
+            document.getElementById('modalWhatsappBtn').onclick = () => {
+                whatsapp(modelInfo.titulo, modelInfo.subtitulo);
+            };
+        }
+
+        function changeModalImage(direction) {
+            const modelKey = currentModalModel === 'Pudú' ? 'A' : currentModalModel === 'Huemul' ? 'B' : 'C';
+            const fotos = fotosData[modelKey];
+            
+            currentModalIndex += direction;
+            
+            if (currentModalIndex < 0) currentModalIndex = fotos.length - 1;
+            if (currentModalIndex >= fotos.length) currentModalIndex = 0;
+
+            displayModalImage(fotos[currentModalIndex], currentModalModel);
         }
 
         function whatsapp(modelo, descripcion) {
@@ -810,6 +1240,11 @@
             
             window.open(`https://wa.me/${numero}?text=${mensaje}`, '_blank');
         }
+
+        // Cerrar modal al presionar ESC
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') closeModal();
+        });
 
         window.addEventListener('load', () => {
             initGallery('A', 'gallery-a', 'nav-a');
