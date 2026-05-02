@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DachCamper - Roof Tents Premium | Carpas de Techo Chile</title>
+    <meta name="description" content="Venta de carpas de techo premium para 4x4. Modelos A, B y C. Apertura automática, tela resistente. WhatsApp: +56 9 8200 2509">
+    <meta name="keywords" content="roof tent Chile, carpa de techo, camping, 4x4, overlanding">
+    <meta name="author" content="DachCamper">
+    
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="DachCamper - Roof Tents Premium">
+    <meta property="og:description" content="Carpas de techo automáticas de alta calidad">
+    <meta property="og:url" content="https://faunatent.vercel.app">
+    
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-N9Y0GGR8JT"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-N9Y0GGR8JT');
+    </script>
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --dark-green: #102820;
+            --forest-green: #4C6444;
+            --khaki: #CABA9C;
+            --amber: #8A6240;
+            --chocolate: #4D2D1C;
+            --white: #FFFFFF;
+            --light-bg: #F5F1ED;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            line-height: 1.6;
+            color: var(--chocolate);
+            background: linear-gradient(135deg, var(--light-bg) 0%, var(--khaki) 100%);
+        }
+
+        header {
+            background: linear-gradient(135deg, var(--dark-green) 0%, rgba(16, 40, 32, 0.95) 100%);
+            color: var(--white);
+            padding: 1.5rem 2rem;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 4px 20px rgba(16, 40, 32, 0.3);
+        }
+
+        nav {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--white);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--khaki);
+        }
+
+        .hero {
+            max-width: 1200px;
+            margin: 4rem auto 2rem;
+            padding: 0 2rem;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            color: var(--dark-green);
+            margin: 1rem 0;
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            color: var(--amber);
+            margin: 1rem 0;
+        }
+
+        .modelos {
+            max-width: 1200px;
+            margin: 4rem auto;
+            padding: 0 2rem;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            color: var(--dark-green);
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .modelos-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .modelo-card {
+            background: var(--white);
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 8px 30px rgba(16, 40, 32, 0.15);
+            transition: transform 0.3s;
+        }
+
+        .modelo-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 40px rgba(16, 40, 32, 0.25);
+        }
+
+        .gallery {
+            width: 100%;
+            height: 300px;
+            background: var(--light-bg);
+            display: flex;
+            overflow-x: auto;
+        }
+
+        .gallery img {
+            min-width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .modelo-info {
+            padding: 2rem;
+        }
+
+        .modelo-title {
+            font-size: 1.8rem;
+            color: var(--dark-green);
+            margin-bottom: 0.5rem;
+        }
+
+        .modelo-price {
+            font-size: 1.5rem;
+            color: var(--amber);
+            font-weight: 700;
+            margin: 1.5rem 0;
+        }
+
+        .caracteristicas {
+            list-style: none;
+            margin-bottom: 1.5rem;
+            font-size: 0.9rem;
+        }
+
+        .caracteristicas li {
+            padding: 0.5rem 0 0.5rem 1.5rem;
+            position: relative;
+        }
+
+        .caracteristicas li:before {
+            content: "◆";
+            position: absolute;
+            left: 0;
+            color: var(--forest-green);
+        }
+
+        .cta-button {
+            width: 100%;
+            padding: 1rem;
+            background: linear-gradient(135deg, var(--forest-green), var(--dark-green));
+            color: var(--white);
+            border: none;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-transform: uppercase;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-2px);
+            background: linear-gradient(135deg, var(--dark-green), var(--chocolate));
+        }
+
+        footer {
+            background: var(--dark-green);
+            color: var(--white);
+            padding: 2rem;
+            text-align: center;
+            margin-top: 4rem;
+        }
+
+        .footer-contact a {
+            color: var(--khaki);
+            text-decoration: none;
+            margin: 0 1rem;
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+            .section-title {
+                font-size: 1.8rem;
+            }
+            .modelos-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">⛺ DachCamper</div>
+            <ul class="nav-links">
+                <li><a href="#inicio">Inicio</a></li>
+                <li><a href="#modelos">Modelos</a></li>
+                <li><a href="#contacto">Contacto</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="hero" id="inicio">
+        <p style="color: var(--forest-green); text-transform: uppercase; letter-spacing: 2px;">🏕️ Roof Tents Premium</p>
+        <h1>Duerme donde quieras</h1>
+        <p>Carpas de techo con diseño, calidad y confort superior</p>
+    </section>
+
+    <section class="modelos" id="modelos">
+        <h2 class="section-title">Nuestros Modelos</h2>
+        <div class="modelos-grid">
+            <!-- MODELO A -->
+            <div class="modelo-card">
+                <div class="gallery">
+                    <img src="fotos_dachcamper/MODELO A/IMG_20260429_004606.jpg" alt="Carpa de techo automática 2-3 personas sin toldo - DachCamper" loading="lazy">
+                </div>
+                <div class="modelo-info">
+                    <h3 class="modelo-title">Modelo A</h3>
+                    <p style="color: var(--amber); margin-bottom: 1rem;">2-3 Personas • Sin Toldo</p>
+                    <ul class="caracteristicas">
+                        <li>Capacidad: 2-3 personas</li>
+                        <li>Área descanso: 200 × 125 cm</li>
+                        <li>Apertura automática V</li>
+                        <li>Tela 280G Poliéster-Algodón</li>
+                        <li>Impermeabilidad: >3.000 mm</li>
+                        <li>Peso: 54 kg (escalera incluida)</li>
+                    </ul>
+                    <div class="modelo-price">$1.230.000 CLP</div>
+                    <button class="cta-button" onclick="whatsapp('Modelo A', '2-3 personas')">💬 Consultar</button>
+                </div>
+            </div>
+
+            <!-- MODELO B -->
+            <div class="modelo-card">
+                <div class="gallery">
+                    <img src="fotos_dachcamper/MODELO B/IMG_20260429_011137.jpg" alt="Carpa de techo con toldo extensible 180 grados - DachCamper" loading="lazy">
+                </div>
+                <div class="modelo-info">
+                    <h3 class="modelo-title">Modelo B</h3>
+                    <p style="color: var(--amber); margin-bottom: 1rem;">2-3 Personas • Toldo 180°</p>
+                    <ul class="caracteristicas">
+                        <li>Capacidad: 2-3 personas</li>
+                        <li>Área descanso: 200 × 125 cm</li>
+                        <li>Toldo extensible 180°</li>
+                        <li>Apertura automática V</li>
+                        <li>Tela 280G Poliéster-Algodón</li>
+                        <li>Peso: 54 kg</li>
+                    </ul>
+                    <div class="modelo-price">$1.350.000 CLP</div>
+                    <button class="cta-button" onclick="whatsapp('Modelo B', '2-3 personas')">💬 Consultar</button>
+                </div>
+            </div>
+
+            <!-- MODELO C -->
+            <div class="modelo-card">
+                <div class="gallery">
+                    <img src="fotos_dachcamper/MODELO C/IMG_20260429_000708.jpg" alt="Carpa de techo premium 4 personas apertura libro - DachCamper" loading="lazy">
+                </div>
+                <div class="modelo-info">
+                    <h3 class="modelo-title">Modelo C</h3>
+                    <p style="color: var(--amber); margin-bottom: 1rem;">4 Personas • Toldo 180°</p>
+                    <ul class="caracteristicas">
+                        <li>Capacidad: 4 personas</li>
+                        <li>Área descanso: 230 × 130 cm</li>
+                        <li>Toldo 180° tipo libro</li>
+                        <li>Ventanas 4 direcciones</li>
+                        <li>Apertura automática rápida</li>
+                        <li>Peso: 62 kg</li>
+                    </ul>
+                    <div class="modelo-price">$1.450.000 CLP</div>
+                    <button class="cta-button" onclick="whatsapp('Modelo C', '4 personas')">💬 Consultar</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer id="contacto">
+        <h3>🏕️ DachCamper</h3>
+        <p style="color: var(--khaki); font-style: italic; margin: 1rem 0;">Duerme donde quieras</p>
+        <div class="footer-contact">
+            <a href="https://wa.me/56982002509?text=Hola%20DachCamper%20me%20interesa%20conocer%20sus%20carpas" target="_blank">
+                📱 WhatsApp: +56 9 8200 2509
+            </a>
+        </div>
+        <p style="margin-top: 1rem; font-size: 0.85rem;">© 2026 DachCamper. Todos los derechos reservados.</p>
+    </footer>
+
+    <script>
+        function whatsapp(modelo, descripcion) {
+            const numero = '56982002509';
+            const mensaje = encodeURIComponent(`Hola DachCamper! Me interesa el ${modelo} (${descripcion}). ¿Cuál es el precio actual y disponibilidad?`);
+            
+            // Analytics event
+            if (typeof gtag !== 'undefined') {
+                gtag('event', 'whatsapp_consulta', {
+                    'modelo': modelo,
+                    'descripcion': descripcion
+                });
+            }
+            
+            window.open(`https://wa.me/${numero}?text=${mensaje}`, '_blank');
+        }
+    </script>
+</body>
+</html>
