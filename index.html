@@ -3,8 +3,117 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DachCamper - Roof Tents Premium | Duerme donde quieras</title>
-    <style>
+    
+    <!-- Primary Meta Tags -->
+    <title>DachCamper - Roof Tents Premium | Carpas de Techo Chile</title>
+    <meta name="title" content="DachCamper - Roof Tents Premium | Carpas de Techo Chile">
+    <meta name="description" content="Venta de carpas de techo premium para 4x4. Modelos A, B y C. Apertura automática, tela resistente, diseño outdoor. ✓ Entrega Biobío y Ñuble. WhatsApp: +56 9 8200 2509">
+    
+    <!-- Keywords -->
+    <meta name="keywords" content="roof tent Chile, carpa de techo, camping, 4x4, overlanding, carpa automática, tent rooftop, carpas Chile, carpa techo precio, dónde comprar roof tent">
+    
+    <!-- Author & Copyright -->
+    <meta name="author" content="DachCamper - Roof Tents Premium">
+    <meta name="copyright" content="Copyright © 2026 DachCamper. All rights reserved.">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://carpaestecho.vercel.app">
+    <meta property="og:title" content="DachCamper - Roof Tents Premium | Duerme donde quieras">
+    <meta property="og:description" content="Carpas de techo premium para 4x4 con apertura automática y diseño outdoor. Modelos A, B y C disponibles. Consulta ahora por WhatsApp.">
+    <meta property="og:image" content="https://carpaestecho.vercel.app/og-image.jpg">
+    <meta property="og:site_name" content="DachCamper">
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://carpaestecho.vercel.app">
+    <meta property="twitter:title" content="DachCamper - Roof Tents Premium">
+    <meta property="twitter:description" content="Carpas de techo de alta calidad para camping y overlanding. ✓ Apertura automática ✓ Tela 280G ✓ Impermeabilidad >3000mm">
+    <meta property="twitter:image" content="https://carpaestecho.vercel.app/og-image.jpg">
+    
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://carpaestecho.vercel.app">
+    
+    <!-- Language Alternate -->
+    <link rel="alternate" hreflang="es" href="https://carpaestecho.vercel.app">
+    
+    <!-- Robots & Crawlers -->
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+    <meta name="googlebot" content="index, follow">
+    <meta name="bingbot" content="index, follow">
+    
+    <!-- Google Site Verification (agregará tu código) -->
+    <!-- Reemplaza XXXXXX con tu código de Google Search Console -->
+    <!-- <meta name="google-site-verification" content="XXXXXX"> -->
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E⛺%3C/text%3E%3C/svg%3E">
+    
+    <!-- Mobile App Meta Tags -->
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="DachCamper">
+    
+    <!-- Color Scheme -->
+    <meta name="theme-color" content="#102820">
+    <meta name="msapplication-TileColor" content="#102820">
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-N9Y0GGR8JT"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-N9Y0GGR8JT', {
+            'page_path': window.location.pathname,
+            'anonymize_ip': true,
+            'allow_google_signals': true,
+            'allow_ad_personalization_signals': true
+        });
+    </script>
+    
+    <!-- Google Tag Manager -->
+    <!-- <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-XXXXXX" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript> -->
+    <!-- Fin Google Tag Manager -->
+    
+    <!-- Structured Data (Schema.org) -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "LocalBusiness",
+        "name": "DachCamper",
+        "image": "https://carpaestecho.vercel.app/logo.png",
+        "description": "Venta de carpas de techo premium para 4x4 y overlanding",
+        "address": {
+            "@type": "PostalAddress",
+            "addressCountry": "CL",
+            "addressRegion": "Biobío"
+        },
+        "telephone": "+56982002509",
+        "sameAs": [
+            "https://www.instagram.com/dachcamper",
+            "https://www.facebook.com/dachcamper"
+        ],
+        "priceRange": "CLP 1230000 - 1450000"
+    }
+    </script>
+    
+    <!-- Product Schema -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Product",
+        "name": "Roof Tent DachCamper",
+        "description": "Carpas de techo automáticas de alta calidad",
+        "brand": "DachCamper",
+        "offers": {
+            "@type": "AggregateOffer",
+            "priceCurrency": "CLP",
+            "lowPrice": "1230000",
+            "highPrice": "1450000"
+        }
+    }
+    </script>
         * {
             margin: 0;
             padding: 0;
@@ -664,6 +773,16 @@
         function consultarWhatsApp(modelo, descripcion) {
             const numero = '56982002509';
             const mensaje = encodeURIComponent(`Hola DachCamper! Me interesa el ${modelo} (${descripcion}). ¿Cuál es el precio actual y disponibilidad?`);
+            
+            // Registrar evento en Google Analytics
+            if (typeof gtag !== 'undefined') {
+                gtag('event', 'whatsapp_consulta', {
+                    'modelo': modelo,
+                    'descripcion': descripcion,
+                    'timestamp': new Date().toISOString()
+                });
+            }
+            
             window.open(`https://wa.me/${numero}?text=${mensaje}`, '_blank');
         }
 
